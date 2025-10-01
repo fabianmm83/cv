@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://127.0.0.1:5000/ -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Fabián Moreno Monroy</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            display: flex;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        /* Columna izquierda (azul) */
+        .left-column {
+            width: 35%;
+            background-color: #2a3f54;
+            color: white;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        /* Columna derecha (blanca) */
+        .right-column {
+            width: 65%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: white;
+            border-bottom: 2px solid white;
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            font-size: 16px;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #2a3f54;
+            border-bottom: 1px solid #2a3f54;
+            padding-bottom: 5px;
+        }
+        
+        .left-column h2 {
+            color: white;
+            border-bottom: 1px solid white;
+        }
+        
+        h3 {
+            font-size: 15px;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        .contact-info {
+            margin-bottom: 5px;
+        }
+        
+        .contact-info p, .contact-info a {
+            margin: 8px 0;
+            font-size: 13px;
+            color: white;
+            text-decoration: none;
+        }
+        
+        .right-column .contact-info p, .right-column .contact-info a {
+            color: #333;
+        }
+        
+        .section {
+            margin-bottom: 15px;
+        }
+        
+        .job, .education, .certification {
+            margin-bottom: 12px;
+        }
+        
+        .date {
+            font-weight: bold;
+            margin-bottom: 3px;
+            font-size: 13px;
+            color: #777;
+        }
+        
+        .left-column .date {
+            color: #ddd;
+        }
+        
+        ul {
+            margin-top: 5px;
+            padding-left: 18px;
+            font-size: 13px;
+        }
+        
+        li {
+            margin-bottom: 3px;
+        }
+        
+        .skills-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+            font-size: 13px;
+        }
+        
+        .skills-table td {
+            vertical-align: top;
+            padding: 3px 5px;
+        }
+        
+        .divider {
+            border-top: 1px solid #999;
+            margin: 15px 0;
+        }
+        
+        .interests-list {
+            list-style-type: none;
+            padding-left: 0;
+            font-size: 13px;
+        }
+        
+        .interests-list li:before {
+            content: "-";
+            margin-right: 5px;
+        }
+        
+        p {
+            font-size: 13px;
+            margin: 8px 0;
+        }
+        
+        .left-column p {
+            color: white;
+        }
+        
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+            display: block;
+            margin: 0 auto 15px auto;
+        }
+        
+        @media print {
+            body {
+                font-size: 11px;
+                padding: 0;
+                margin: 0;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: row;
+                box-shadow: none;
+            }
+            
+            .left-column {
+                width: 35%;
+                background-color: #2a3f54 !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                padding: 15px;
+                height: 11in; /* Altura carta */
+                overflow: hidden;
+            }
+            
+            .right-column {
+                width: 65%;
+                padding: 15px;
+                height: 11in; /* Altura carta */
+                overflow: hidden;
+            }
+            
+            .profile-img {
+                width: 100px;
+                height: 100px;
+                border: 3px solid white !important;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+                margin-bottom: 10px;
+            }
+            
+            h1 {
+                font-size: 20px;
+                padding-bottom: 8px;
+            }
+            
+            h2 {
+                font-size: 14px;
+                margin-top: 20px;
+            }
+            
+            p, li, .contact-info p, .contact-info a, .date {
+                font-size: 11px;
+            }
+            
+            /* Evitar saltos de página dentro de secciones */
+            .section {
+                page-break-inside: avoid;
+            }
+            
+            /* Configuración de márgenes para impresión */
+            @page {
+                size: letter;
+                margin: 0.5cm;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Columna izquierda (azul) -->
+    <div class="left-column">
+        <!-- Foto de perfil -->
+        <img src="./CV - Fabián Moreno Monroy_files/perfil.png" alt="Foto de perfil de Fabián Moreno" class="profile-img">
+        
+        <h1>FABIÁN MORENO MONROY</h1>
+        <h2>ANALISTA DE DATOS</h2>
+        
+        <div class="section">
+            <h2>SOBRE MÍ</h2>
+            <p>Analista de Datos con experiencia en Python, Excel y Power BI. Cursando certificado en Google Data Analytics y diplomado en banca y finanzas. Enfoque en transformar datos en acciones basada en evidencias.  </p>
+        </div>
+        
+        <div class="section">
+            <h2>CONTACTO</h2>
+            <div class="contact-info">
+                <p><strong>Teléfono:</strong> 55 6931 2582</p>
+                <p><strong>Email:</strong> fabianmm83@hotmail.com</p>
+                <p><strong>LinkedIn:</strong> linkedin.com/in/fabian-moreno-93ba18201</p>
+                <p><strong>GitHub:</strong> https://github.com/fabianmm83?tab=repositories</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>HABILIDADES</h2>
+            <ul>
+                <li>Python (Pandas, NumPy)</li>
+                <li>Análisis de datos</li>
+                <li>Excel avanzado</li>
+                <li>SQL</li>
+                <li>Power BI</li>
+                <li>Trabajo en equipo</li>
+                <li>Resolución de problemas</li>
+                <li>Pensamiento Sistemático</li>
+                <li>Comunicación efectiva</li>
+                <li>Gestión del tiempo</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>IDIOMAS</h2>
+            <ul>
+                <li>Español (nativo)</li>
+                <li>Inglés B1</li>
+                <li>Francés A2</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>INTERESES</h2>
+            <ul class="interests-list">
+                <li>Innovación tecnológica</li>
+                <li>Desarrollo de soluciones sostenibles</li>
+                <li>Mejora continua</li>
+                <li>Proyectos de impacto social y ecológico</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Columna derecha (blanca) -->
+    <div class="right-column">
+        <div class="section">
+            <h2>FORMACIÓN ACADÉMICA</h2>
+            <div class="education">
+                <div class="date">2025 – Actualidad</div>
+                <h3>Diplomado Avanzado en Banca y Finanzas</h3>
+                <p>Palacio de Minería (En línea) - DDA22-2025</p>
+            </div>
+            <div class="education">
+                <div class="date">En curso</div>
+                <h3>Ingeniería Mecatrónica</h3>
+                <p>Universidad Nacional Autónoma de México (UNAM) - 8vo semestre</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>CERTIFICACIONES</h2>
+            <div class="certification">
+                <div class="date">Junio 2025 – Julio 2025</div>
+                <h3>Google Data Analytics</h3>
+                <p>Google (En línea)</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>EXPERIENCIA LABORAL</h2>
+            <div class="job">
+                <div class="date">Enero 2022 – Octubre 2022</div>
+                <h3>Speedling Inc.</h3>
+                <p><em>Grower - Blairsville, Georgia, USA</em></p>
+                <ul>
+                    <li>Cuidado y crecimiento de plantas en invernaderos</li>
+                    <li>Supervisión de condiciones ambientales y técnicas de cultivo</li>
+                    <li>Colaboración en equipos multiculturales</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body></html>
