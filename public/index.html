@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Fabián Moreno Monroy</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.3;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            display: flex;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            font-size: 12px;
+        }
+        
+        /* Columnas ajustadas */
+        .left-column {
+            width: 40%;
+            background-color: #2a3f54;
+            color: white;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+        
+        .right-column {
+            width: 60%;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+        
+        /* Optimización de espacios */
+        h1 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            color: white;
+            border-bottom: 1px solid white;
+            padding-bottom: 8px;
+        }
+        
+        h2 {
+            font-size: 14px;
+            margin-top: 15px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            color: #2a3f54;
+            border-bottom: 1px solid #2a3f54;
+            padding-bottom: 3px;
+        }
+        
+        .left-column h2 {
+            color: white;
+            border-bottom: 1px solid white;
+        }
+        
+        h3 {
+            font-size: 13px;
+            margin-bottom: 3px;
+            font-weight: bold;
+        }
+        
+        .profile-img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid white;
+            display: block;
+            margin: 0 auto 10px auto;
+        }
+        
+        /* Elementos compactos */
+        ul {
+            margin: 5px 0;
+            padding-left: 15px;
+        }
+        
+        li {
+            margin-bottom: 2px;
+            font-size: 11px;
+        }
+        
+        p {
+            margin: 5px 0;
+            font-size: 11px;
+        }
+        
+        .date {
+            font-size: 10px;
+            color: #ddd;
+            margin-bottom: 2px;
+        }
+        
+        .right-column .date {
+            color: #777;
+        }
+        
+        .section {
+            margin-bottom: 10px;
+        }
+        
+        /* Ajustes para impresión */
+        @media print {
+            body {
+                font-size: 10px;
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                box-shadow: none;
+            }
+            
+            .left-column {
+                width: 40%;
+                height: 11in;
+                padding: 12px;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            
+            .right-column {
+                width: 60%;
+                height: 11in;
+                padding: 12px;
+            }
+            
+            .profile-img {
+                width: 80px;
+                height: 80px;
+            }
+            
+            h1 { font-size: 16px; }
+            h2 { font-size: 12px; }
+            h3 { font-size: 11px; }
+            
+            @page {
+                size: letter;
+                margin: 0.5cm;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Columna izquierda (azul) -->
+    <div class="left-column">
+        <img src="static/perfil.png" alt="Foto de perfil" class="profile-img">
+        
+        <h1>FABIÁN MORENO MONROY</h1>
+        <h2>ANALISTA DE DATOS</h2>
+        
+        <div class="section">
+            <h2>PERFIL PROFESIONAL</h2>
+            <p>Analista de datos con experiencia en Python, Power BI y Excel. Especializado en transformar datos complejos en insights accionables para la toma de decisiones.</p>
+        </div>
+        
+        <div class="section">
+            <h2>CONTACTO</h2>
+            <p><strong>Tel:</strong> 55 6931 2582</p>
+            <p><strong>Email:</strong> fabianmm83@hotmail.com</p>
+            <p><strong>LinkedIn:</strong> www.linkedin.com/in/fabián-moreno-monroy83</p>
+            <p><strong>GitHub:</strong> github.com/fabianmm83</p>
+        </div>
+        
+        <div class="section">
+            <h2>HABILIDADES TÉCNICAS</h2>
+            <ul>
+                <li>Python (Pandas, NumPy)</li>
+                <li>Power BI (Dashboards)</li>
+                <li>Excel avanzado </li>
+                <li>SQL</li>
+                <li>Análisis estadístico</li>
+                <li>Visualización de datos</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>HABILIDADES BLANDAS</h2>
+            <ul>
+                <li>Pensamiento analítico</li>
+                <li>Comunicación efectiva</li>
+                <li>Trabajo en equipo</li>
+                <li>Gestión del tiempo</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>IDIOMAS</h2>
+            <ul>
+                <li>Español (Nativo)</li>
+                <li>Inglés (B1)</li>
+                <li>Francés (A1)</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Columna derecha (blanca) -->
+    <div class="right-column">
+        <div class="section">
+            <h2>FORMACIÓN ACADÉMICA</h2>
+            <div class="education">
+                <div class="date">2025 – Actualidad</div>
+                <h3>Diplomado en Banca y Finanzas</h3>
+                <p>Palacio de Minería (En línea)</p>
+            </div>
+            <div class="education">
+                <div class="date">En curso</div>
+                <h3>Ingeniería Mecatrónica</h3>
+                <p>UNAM - 8vo semestre</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>CERTIFICACIONES</h2>
+            <div class="certification">
+                <div class="date">2025</div>
+                <h3>Google Data Analytics</h3>
+                <p>Google (En curso)</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>EXPERIENCIA LABORAL</h2>
+            <div class="job">
+                <div class="date">2022</div>
+                <h3>Speedling Inc. - Grower</h3>
+                <p>Georgia, USA</p>
+                <ul>
+                    <li>Gestión de cultivos en invernadero</li>
+                    <li>Control de variables ambientales</li>
+                    <li>Trabajo en equipo multicultural</li>
+                </ul>
+            </div>
+        </div>
+        
+        
+        </div>
+    </div>
+</body>
+</html>
