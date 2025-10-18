@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fabián Moreno Monroy - Analista de Datos</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         /* Variables y reset */
         :root {
@@ -24,7 +27,7 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--secondary-color);
@@ -108,20 +111,49 @@
             cursor: pointer;
         }
         
-        /* Hero Section */
+        /* Hero Section - Modificada para incluir tu foto */
         .hero {
             height: 100vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(rgba(42, 63, 84, 0.8), rgba(42, 63, 84, 0.9)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+            background: linear-gradient(rgba(42, 63, 84, 0.9), rgba(42, 63, 84, 0.95)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
             color: var(--light-text);
-            text-align: center;
             padding-top: 80px;
+            position: relative;
         }
         
         .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+        
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+        }
+        
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .profile-img {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            transition: var(--transition);
+        }
+        
+        .profile-img:hover {
+            transform: scale(1.03);
+            border-color: var(--accent-color);
         }
         
         .hero h1 {
@@ -129,12 +161,14 @@
             margin-bottom: 1rem;
             text-transform: uppercase;
             letter-spacing: 2px;
+            line-height: 1.1;
         }
         
         .hero p {
             font-size: 1.2rem;
             margin-bottom: 2rem;
             opacity: 0.9;
+            max-width: 500px;
         }
         
         .btn {
@@ -206,23 +240,6 @@
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
             align-items: center;
-        }
-        
-        .about-img {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-        
-        .about-img img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: var(--transition);
-        }
-        
-        .about-img:hover img {
-            transform: scale(1.05);
         }
         
         .about-text h3 {
@@ -479,6 +496,25 @@
             .hero h1 {
                 font-size: 2.5rem;
             }
+            
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-text {
+                order: 2;
+            }
+            
+            .hero-image {
+                order: 1;
+                margin-bottom: 2rem;
+            }
+            
+            .profile-img {
+                width: 250px;
+                height: 250px;
+            }
         }
         
         @media (max-width: 768px) {
@@ -545,6 +581,11 @@
             .btn-outline {
                 margin-left: 0;
             }
+            
+            .profile-img {
+                width: 200px;
+                height: 200px;
+            }
         }
     </style>
 </head>
@@ -572,11 +613,16 @@
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Fabián Moreno Monroy</h1>
-                <p>Analista de datos especializado en transformar datos complejos en insights accionables para la toma de decisiones.</p>
-                <div class="hero-buttons">
-                    <a href="#contact" class="btn">Contáctame</a>
-                    <a href="#about" class="btn btn-outline">Ver más</a>
+                <div class="hero-text">
+                    <h1>Fabián Moreno Monroy</h1>
+                    <p>Analista de datos especializado en transformar datos complejos en insights accionables para la toma de decisiones.</p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn">Contáctame</a>
+                        <a href="#about" class="btn btn-outline">Ver más</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="public/static/perfil.png" alt="Fabián Moreno Monroy" class="profile-img">
                 </div>
             </div>
         </div>
@@ -590,9 +636,6 @@
                 <p>Conoce más sobre mi trayectoria profesional y habilidades</p>
             </div>
             <div class="about-content">
-                <div class="about-img">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=634&q=80" alt="Fabián Moreno">
-                </div>
                 <div class="about-text">
                     <h3>Analista de Datos con Enfoque en Resultados</h3>
                     <p>Soy un analista de datos con experiencia en Python, Power BI y Excel. Me especializo en transformar datos complejos en insights accionables para la toma de decisiones estratégicas.</p>
@@ -636,6 +679,9 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80" alt="Análisis de datos" class="about-img">
                 </div>
             </div>
         </div>
@@ -748,6 +794,24 @@
                         <div class="contact-details">
                             <h3>Ubicación</h3>
                             <p>Ciudad de México, México</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>LinkedIn</h3>
+                            <p>www.linkedin.com/in/fabián-moreno-monroy83</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>GitHub</h3>
+                            <p>github.com/fabianmm83</p>
                         </div>
                     </div>
                 </div>
