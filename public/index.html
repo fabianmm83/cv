@@ -3,242 +3,865 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - Fabián Moreno Monroy</title>
+    <title>Fabián Moreno Monroy - Analista de Datos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.3;
+        /* Variables y reset */
+        :root {
+            --primary-color: #2a3f54;
+            --secondary-color: #f8f9fa;
+            --accent-color: #3498db;
+            --text-color: #333;
+            --light-text: #fff;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
             margin: 0;
             padding: 0;
-            color: #333;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--secondary-color);
+            overflow-x: hidden;
+        }
+        
+        /* Encabezado y navegación */
+        header {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .navbar {
             display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .logo span {
+            color: var(--accent-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(42, 63, 84, 0.8), rgba(42, 63, 84, 0.9)), url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+            color: var(--light-text);
+            text-align: center;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
             max-width: 800px;
             margin: 0 auto;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            font-size: 12px;
         }
         
-        /* Columnas ajustadas */
-        .left-column {
-            width: 40%;
-            background-color: #2a3f54;
-            color: white;
-            padding: 15px;
-            box-sizing: border-box;
-        }
-        
-        .right-column {
-            width: 60%;
-            padding: 15px;
-            box-sizing: border-box;
-        }
-        
-        /* Optimización de espacios */
-        h1 {
-            font-size: 18px;
-            margin-bottom: 5px;
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
             text-transform: uppercase;
-            color: white;
-            border-bottom: 1px solid white;
-            padding-bottom: 8px;
+            letter-spacing: 2px;
         }
         
-        h2 {
-            font-size: 14px;
-            margin-top: 15px;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            color: #2a3f54;
-            border-bottom: 1px solid #2a3f54;
-            padding-bottom: 3px;
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
         }
         
-        .left-column h2 {
-            color: white;
-            border-bottom: 1px solid white;
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--accent-color);
+            color: var(--light-text);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            border: 2px solid var(--accent-color);
         }
         
-        h3 {
-            font-size: 13px;
-            margin-bottom: 3px;
-            font-weight: bold;
+        .btn:hover {
+            background-color: transparent;
+            color: var(--accent-color);
         }
         
-        .profile-img {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid white;
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--light-text);
+            margin-left: 1rem;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--light-text);
+            color: var(--primary-color);
+        }
+        
+        /* Secciones generales */
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            position: relative;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background-color: var(--accent-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title p {
+            max-width: 600px;
+            margin: 0 auto;
+            color: #666;
+        }
+        
+        /* Acerca de */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-img {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
             display: block;
-            margin: 0 auto 10px auto;
+            transition: var(--transition);
         }
         
-        /* Elementos compactos */
-        ul {
-            margin: 5px 0;
-            padding-left: 15px;
+        .about-img:hover img {
+            transform: scale(1.05);
         }
         
-        li {
-            margin-bottom: 2px;
-            font-size: 11px;
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
         }
         
-        p {
-            margin: 5px 0;
-            font-size: 11px;
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: #666;
         }
         
-        .date {
-            font-size: 10px;
-            color: #ddd;
-            margin-bottom: 2px;
+        .skills {
+            margin-top: 2rem;
         }
         
-        .right-column .date {
-            color: #777;
+        .skill-item {
+            margin-bottom: 1.5rem;
         }
         
-        .section {
-            margin-bottom: 10px;
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
         }
         
-        /* Ajustes para impresión */
-        @media print {
-            body {
-                font-size: 10px;
+        .skill-bar {
+            height: 8px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background-color: var(--accent-color);
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+        
+        /* Servicios */
+        .services {
+            background-color: #f8f9fa;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background-color: var(--light-text);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        /* Experiencia */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--primary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: var(--light-text);
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+        
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: var(--light-text);
+            top: 20px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::after {
+            left: -10px;
+        }
+        
+        .timeline-date {
+            font-weight: 600;
+            color: var(--accent-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        /* Contacto */
+        .contact {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+        }
+        
+        .contact .section-title h2 {
+            color: var(--light-text);
+        }
+        
+        .contact .section-title p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            margin-top: 5px;
+        }
+        
+        .contact-details h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-form {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+            color: var(--light-text);
+            font-family: inherit;
+        }
+        
+        .form-control::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1a2a3a;
+            color: var(--light-text);
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .social-links a {
+            color: var(--light-text);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
                 width: 100%;
-                height: 100%;
-                margin: 0;
-                padding: 0;
-                box-shadow: none;
+                height: calc(100vh - 70px);
+                background-color: var(--primary-color);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 2rem;
+                transition: var(--transition);
             }
             
-            .left-column {
-                width: 40%;
-                height: 11in;
-                padding: 12px;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
+            .nav-links.active {
+                left: 0;
             }
             
-            .right-column {
-                width: 60%;
-                height: 11in;
-                padding: 12px;
+            .nav-links li {
+                margin: 1rem 0;
             }
             
-            .profile-img {
-                width: 80px;
-                height: 80px;
+            .timeline::after {
+                left: 31px;
             }
             
-            h1 { font-size: 16px; }
-            h2 { font-size: 12px; }
-            h3 { font-size: 11px; }
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
             
-            @page {
-                size: letter;
-                margin: 0.5cm;
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-content::after {
+                left: -10px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                display: block;
+                margin: 0.5rem auto;
+                width: 80%;
+            }
+            
+            .btn-outline {
+                margin-left: 0;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Columna izquierda (azul) -->
-    <div class="left-column">
-        <img src="static/perfil.png" alt="Foto de perfil" class="profile-img">
-        
-        <h1>FABIÁN MORENO MONROY</h1>
-        <h2>ANALISTA DE DATOS</h2>
-        
-        <div class="section">
-            <h2>PERFIL PROFESIONAL</h2>
-            <p>Analista de datos con experiencia en Python, Power BI y Excel. Especializado en transformar datos complejos en insights accionables para la toma de decisiones.</p>
-        </div>
-        
-        <div class="section">
-            <h2>CONTACTO</h2>
-            <p><strong>Tel:</strong> 55 6931 2582</p>
-            <p><strong>Email:</strong> fabianmm83@hotmail.com</p>
-            <p><strong>LinkedIn:</strong> www.linkedin.com/in/fabián-moreno-monroy83</p>
-            <p><strong>GitHub:</strong> github.com/fabianmm83</p>
-        </div>
-        
-        <div class="section">
-            <h2>HABILIDADES TÉCNICAS</h2>
-            <ul>
-                <li>Python (Pandas, NumPy)</li>
-                <li>Power BI (Dashboards)</li>
-                <li>Excel avanzado </li>
-                <li>SQL</li>
-                <li>Análisis estadístico</li>
-                <li>Visualización de datos</li>
-            </ul>
-        </div>
-        
-        <div class="section">
-            <h2>HABILIDADES BLANDAS</h2>
-            <ul>
-                <li>Pensamiento analítico</li>
-                <li>Comunicación efectiva</li>
-                <li>Trabajo en equipo</li>
-                <li>Gestión del tiempo</li>
-            </ul>
-        </div>
-        
-        <div class="section">
-            <h2>IDIOMAS</h2>
-            <ul>
-                <li>Español (Nativo)</li>
-                <li>Inglés (B1)</li>
-                <li>Francés (A1)</li>
-            </ul>
-        </div>
-    </div>
-    
-    <!-- Columna derecha (blanca) -->
-    <div class="right-column">
-        <div class="section">
-            <h2>FORMACIÓN ACADÉMICA</h2>
-            <div class="education">
-                <div class="date">2025 – Actualidad</div>
-                <h3>Diplomado en Banca y Finanzas</h3>
-                <p>Palacio de Minería (En línea)</p>
-            </div>
-            <div class="education">
-                <div class="date">En curso</div>
-                <h3>Ingeniería Mecatrónica</h3>
-                <p>UNAM - 8vo semestre</p>
-            </div>
-        </div>
-        
-        <div class="section">
-            <h2>CERTIFICACIONES</h2>
-            <div class="certification">
-                <div class="date">2025</div>
-                <h3>Google Data Analytics</h3>
-                <p>Google (En curso)</p>
-            </div>
-        </div>
-        
-        <div class="section">
-            <h2>EXPERIENCIA LABORAL</h2>
-            <div class="job">
-                <div class="date">2022</div>
-                <h3>Speedling Inc. - Grower</h3>
-                <p>Georgia, USA</p>
-                <ul>
-                    <li>Gestión de cultivos en invernadero</li>
-                    <li>Control de variables ambientales</li>
-                    <li>Trabajo en equipo multicultural</li>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">Fabian<span>MM</span></div>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#home">Inicio</a></li>
+                    <li><a href="#about">Acerca de</a></li>
+                    <li><a href="#services">Servicios</a></li>
+                    <li><a href="#experience">Experiencia</a></li>
+                    <li><a href="#contact">Contacto</a></li>
                 </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Fabián Moreno Monroy</h1>
+                <p>Analista de datos especializado en transformar datos complejos en insights accionables para la toma de decisiones.</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn">Contáctame</a>
+                    <a href="#about" class="btn btn-outline">Ver más</a>
+                </div>
             </div>
         </div>
-        
-        
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>Acerca de Mí</h2>
+                <p>Conoce más sobre mi trayectoria profesional y habilidades</p>
+            </div>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=634&q=80" alt="Fabián Moreno">
+                </div>
+                <div class="about-text">
+                    <h3>Analista de Datos con Enfoque en Resultados</h3>
+                    <p>Soy un analista de datos con experiencia en Python, Power BI y Excel. Me especializo en transformar datos complejos en insights accionables para la toma de decisiones estratégicas.</p>
+                    <p>Actualmente curso Ingeniería Mecatrónica en la UNAM y un Diplomado en Banca y Finanzas en el Palacio de Minería, complementando mi formación técnica con conocimientos financieros.</p>
+                    
+                    <div class="skills">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>Python</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>Power BI</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>Excel Avanzado</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span>SQL</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Mis Servicios</h2>
+                <p>Soluciones de análisis de datos para potenciar tu negocio</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Análisis de Datos</h3>
+                    <p>Transformo datos complejos en informes claros y dashboards interactivos que facilitan la toma de decisiones estratégicas.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Visualización de Datos</h3>
+                    <p>Creo visualizaciones impactantes en Power BI que comunican insights de manera efectiva y comprensible.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Automatización</h3>
+                    <p>Desarrollo scripts en Python para automatizar procesos repetitivos, aumentando la eficiencia operativa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Experiencia y Formación</h2>
+                <p>Mi trayectoria profesional y educativa</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2025 – Actualidad</div>
+                        <h3>Diplomado en Banca y Finanzas</h3>
+                        <p>Palacio de Minería (En línea)</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">En curso</div>
+                        <h3>Ingeniería Mecatrónica</h3>
+                        <p>UNAM - 8vo semestre</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2025</div>
+                        <h3>Google Data Analytics</h3>
+                        <p>Google (En curso)</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2022</div>
+                        <h3>Speedling Inc. - Grower</h3>
+                        <p>Georgia, USA - Gestión de cultivos en invernadero y control de variables ambientales</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contáctame</h2>
+                <p>¿Tienes un proyecto en mente? Hablemos</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Teléfono</h3>
+                            <p>55 6931 2582</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p>fabianmm83@hotmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Ubicación</h3>
+                            <p>Ciudad de México, México</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Tu nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Tu email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Asunto" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" placeholder="Tu mensaje" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p class="copyright">&copy; 2023 Fabián Moreno Monroy. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Menu Toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu after clicking a link
+                    if(navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                    }
+                }
+            });
+        });
+        
+        // Form Submission
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por tu mensaje! Me pondré en contacto contigo pronto.');
+            this.reset();
+        });
+        
+        // Animate skill bars on scroll
+        const animateSkillBars = () => {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            skillBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 300);
+            });
+        };
+        
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.3
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    if(entry.target.id === 'about') {
+                        animateSkillBars();
+                    }
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe sections for animation
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = 0;
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            observer.observe(section);
+        });
+    </script>
 </body>
 </html>
