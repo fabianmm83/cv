@@ -3,24 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fabián Moreno Monroy - Analista de Datos Financieros</title>
+    <title>Fabian Moreno Monroy - Analista de Datos / Desarrollador de Software</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #1e3a5f;
-            --secondary-color: #f8f9fa;
-            --accent-color: #2ecc71;
-            --accent-secondary: #3498db;
+            --primary-color: #2c3e50;
+            --secondary-color: #f5f7fa;
+            --accent-color: #3498db;
+            --accent-secondary: #7f8c8d;
             --whatsapp-color: #25D366;
             --text-color: #2c3e50;
             --light-text: #ffffff;
             --card-bg: #ffffff;
-            --finance-pattern: #e8f4f8;
+            --finance-pattern: #ecf0f1;
             --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             --transition: all 0.3s ease;
+            --gray-dark: #34495e;
+            --gray-medium: #7f8c8d;
+            --gray-light: #bdc3c7;
+            --gray-lighter: #ecf0f1;
         }
         
         * {
@@ -35,11 +39,17 @@
             color: var(--text-color);
             background-color: var(--secondary-color);
             overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(236, 240, 241, 0.5) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(236, 240, 241, 0.5) 0%, transparent 20%),
+                linear-gradient(45deg, transparent 49%, rgba(52, 152, 219, 0.03) 49%, rgba(52, 152, 219, 0.03) 51%, transparent 51%),
+                linear-gradient(-45deg, transparent 49%, rgba(52, 152, 219, 0.03) 49%, rgba(52, 152, 219, 0.03) 51%, transparent 51%);
+            background-size: 100% 100%, 100% 100%, 30px 30px, 30px 30px;
         }
         
         /* Header */
         header {
-            background-color: rgba(30, 58, 95, 0.95);
+            background-color: rgba(44, 62, 80, 0.95);
             color: var(--light-text);
             padding: 1rem 0;
             position: fixed;
@@ -65,12 +75,13 @@
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
-            text-transform: uppercase;
+            text-transform: none;
             letter-spacing: 1px;
         }
         
         .logo span {
             color: var(--accent-color);
+            text-transform: none;
         }
         
         .nav-links {
@@ -160,8 +171,8 @@
             display: flex;
             align-items: center;
             background: 
-                linear-gradient(135deg, rgba(30, 58, 95, 0.9) 0%, rgba(46, 204, 113, 0.8) 100%),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%231e3a5f"/><path d="M0 50 L100 50 M50 0 L50 100" stroke="%232ecc71" stroke-width="1" opacity="0.2"/><circle cx="20" cy="20" r="2" fill="%232ecc71" opacity="0.3"/><circle cx="80" cy="80" r="2" fill="%232ecc71" opacity="0.3"/><circle cx="80" cy="20" r="2" fill="%232ecc71" opacity="0.3"/><circle cx="20" cy="80" r="2" fill="%232ecc71" opacity="0.3"/></svg>');
+                linear-gradient(135deg, rgba(44, 62, 80, 0.9) 0%, rgba(52, 152, 219, 0.8) 100%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%232c3e50"/><path d="M0 50 L100 50 M50 0 L50 100" stroke="%233498db" stroke-width="1" opacity="0.2"/><circle cx="20" cy="20" r="2" fill="%233498db" opacity="0.3"/><circle cx="80" cy="80" r="2" fill="%233498db" opacity="0.3"/><circle cx="80" cy="20" r="2" fill="%233498db" opacity="0.3"/><circle cx="20" cy="80" r="2" fill="%233498db" opacity="0.3"/></svg>');
             color: var(--light-text);
             padding-top: 80px;
             position: relative;
@@ -315,7 +326,7 @@
         .section-title p {
             max-width: 600px;
             margin: 0 auto;
-            color: #666;
+            color: var(--gray-medium);
         }
         
         /* About Section */
@@ -332,7 +343,7 @@
             right: 0;
             width: 200px;
             height: 200px;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20,20 Q50,0 80,20 T100,50 T80,80 T50,100 T20,80 T0,50 T20,20 Z" fill="%232ecc71" opacity="0.05"/></svg>');
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20,20 Q50,0 80,20 T100,50 T80,80 T50,100 T20,80 T0,50 T20,20 Z" fill="%233498db" opacity="0.05"/></svg>');
             background-size: contain;
         }
         
@@ -351,7 +362,7 @@
         
         .about-text p {
             margin-bottom: 1.5rem;
-            color: #666;
+            color: var(--gray-medium);
             font-size: 1.1rem;
         }
         
@@ -371,7 +382,7 @@
         
         .skill-bar {
             height: 10px;
-            background-color: #e9ecef;
+            background-color: var(--gray-lighter);
             border-radius: 5px;
             overflow: hidden;
         }
@@ -449,7 +460,7 @@
             right: 0;
             width: 100px;
             height: 100px;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="10" y="10" width="80" height="80" rx="10" fill="%231e3a5f" opacity="0.05"/></svg>');
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="10" y="10" width="80" height="80" rx="10" fill="%232c3e50" opacity="0.05"/></svg>');
             background-size: contain;
         }
         
@@ -524,7 +535,7 @@
             color: var(--accent-color);
             margin-bottom: 0.5rem;
             display: inline-block;
-            background-color: rgba(46, 204, 113, 0.1);
+            background-color: rgba(52, 152, 219, 0.1);
             padding: 5px 15px;
             border-radius: 20px;
             font-size: 0.9rem;
@@ -532,7 +543,7 @@
         
         .timeline-item:nth-child(odd) .timeline-date {
             color: var(--accent-secondary);
-            background-color: rgba(52, 152, 219, 0.1);
+            background-color: rgba(127, 140, 141, 0.1);
         }
         
         .timeline-content h3 {
@@ -540,9 +551,66 @@
             color: var(--primary-color);
         }
         
+        /* Portfolio Section */
+        .portfolio {
+            background-color: var(--secondary-color);
+            position: relative;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .portfolio-item {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .portfolio-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .portfolio-content {
+            padding: 1.5rem;
+        }
+        
+        .portfolio-content h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .portfolio-content p {
+            color: var(--gray-medium);
+            margin-bottom: 1rem;
+        }
+        
+        .portfolio-link {
+            display: inline-block;
+            color: var(--accent-color);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .portfolio-link:hover {
+            color: var(--accent-secondary);
+        }
+        
         /* Contact Section */
         .contact {
-            background: linear-gradient(135deg, var(--primary-color) 0%, #152642 100%);
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a2530 100%);
             color: var(--light-text);
             position: relative;
             overflow: hidden;
@@ -555,7 +623,7 @@
             left: 0;
             width: 200px;
             height: 200px;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50,10 C70,10 90,30 90,50 C90,70 70,90 50,90 C30,90 10,70 10,50 C10,30 30,10 50,10 Z" fill="%232ecc71" opacity="0.05"/></svg>');
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50,10 C70,10 90,30 90,50 C90,70 70,90 50,90 C30,90 10,70 10,50 C10,30 30,10 50,10 Z" fill="%233498db" opacity="0.05"/></svg>');
             background-size: contain;
         }
         
@@ -634,7 +702,7 @@
         
         /* Footer */
         footer {
-            background-color: #152642;
+            background-color: #1a2530;
             color: var(--light-text);
             padding: 2rem 0;
             text-align: center;
@@ -786,7 +854,7 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <div class="logo">Fabian<span>Moreno Monroy</span></div>
+                <div class="logo">Fabian Moreno Monroy</div>
                 <div class="menu-toggle">
                     <i class="fas fa-bars"></i>
                 </div>
@@ -794,6 +862,7 @@
                     <li><a href="#home">Inicio</a></li>
                     <li><a href="#about">Acerca de</a></li>
                     <li><a href="#services">Servicios</a></li>
+                    <li><a href="#portfolio">Portafolio</a></li>
                     <li><a href="#experience">Experiencia</a></li>
                     <li><a href="#contact">Contacto</a></li>
                 </ul>
@@ -811,36 +880,35 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Fabián Moreno Monroy</h1>
-                    <h2>Analista de Datos Financieros</h2>
-                    <p>Especializado en transformar datos complejos en insights accionables para la toma de decisiones estratégicas en el sector financiero.</p>
+                    <h1>Fabian Moreno Monroy</h1>
+                    <h2>Analista de Datos / Desarrollador de Software</h2>
+                    <p>Especializado en transformar datos complejos en insights accionables y desarrollar soluciones tecnológicas innovadoras para diversos sectores.</p>
                     <div class="hero-buttons">
                         <a href="#contact" class="btn">Contáctame</a>
-                        <a href="#about" class="btn btn-outline">Conoce más</a>
+                        <a href="#portfolio" class="btn btn-outline">Ver Portafolio</a>
                     </div>
                 </div>
                 <div class="hero-image">
-                    <!-- Asegúrate de que la ruta a tu imagen sea correcta -->
-                    <img src="./public/static/perfil.png" alt="Fabián Moreno Monroy" class="profile-img">
+                    <!-- Ruta CORRECTA según tu estructura -->
+                    <img src="static/perfil.png" alt="Fabian Moreno Monroy" class="profile-img">
                 </div>
             </div>
         </div>
     </section>
-
-
 
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
             <div class="section-title">
                 <h2>Acerca de Mí</h2>
-                <p>Conoce más sobre mi trayectoria profesional y habilidades en análisis financiero</p>
+                <p>Conoce más sobre mi trayectoria profesional y habilidades en análisis de datos y desarrollo de software</p>
             </div>
             <div class="about-content">
                 <div class="about-text">
-                    <h3>Analista de Datos con Enfoque en Finanzas</h3>
-                    <p>Soy un analista de datos con experiencia en Python, Power BI y Excel, especializado en el sector financiero. Combino conocimientos técnicos con una comprensión profunda de los mercados financieros para proporcionar insights valiosos.</p>
+                    <h3>Analista de Datos y Desarrollador de Software</h3>
+                    <p>Soy un profesional con experiencia en Python, Power BI, Excel y desarrollo web, especializado en transformar datos complejos en insights accionables y crear soluciones tecnológicas innovadoras.</p>
                     <p>Actualmente curso Ingeniería Mecatrónica en la UNAM y un Diplomado en Banca y Finanzas en el Palacio de Minería, complementando mi formación técnica con conocimientos financieros avanzados.</p>
+                    <p>Como fundador de <strong>ToroTech</strong>, ofrezco servicios de análisis de datos y desarrollo de software personalizado para empresas de diversos sectores.</p>
                     
                     <div class="skills">
                         <div class="skill-item">
@@ -854,7 +922,7 @@
                         </div>
                         <div class="skill-item">
                             <div class="skill-info">
-                                <span>Power BI (Dashboards Financieros)</span>
+                                <span>Power BI (Dashboards)</span>
                                 <span>80%</span>
                             </div>
                             <div class="skill-bar">
@@ -863,16 +931,16 @@
                         </div>
                         <div class="skill-item">
                             <div class="skill-info">
-                                <span>Excel Avanzado (Análisis Financiero)</span>
-                                <span>90%</span>
+                                <span>Desarrollo Web (HTML, CSS, JS)</span>
+                                <span>75%</span>
                             </div>
                             <div class="skill-bar">
-                                <div class="skill-progress" style="width: 90%"></div>
+                                <div class="skill-progress" style="width: 75%"></div>
                             </div>
                         </div>
                         <div class="skill-item">
                             <div class="skill-info">
-                                <span>SQL (Consultas Financieras)</span>
+                                <span>SQL (Consultas Avanzadas)</span>
                                 <span>75%</span>
                             </div>
                             <div class="skill-bar">
@@ -882,7 +950,7 @@
                     </div>
                 </div>
                 <div class="about-image">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80" alt="Análisis de datos financieros" class="profile-img">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80" alt="Análisis de datos" class="profile-img">
                 </div>
             </div>
         </div>
@@ -893,29 +961,65 @@
         <div class="container">
             <div class="section-title">
                 <h2>Mis Servicios</h2>
-                <p>Soluciones de análisis de datos especializadas para el sector financiero</p>
+                <p>Soluciones de análisis de datos y desarrollo de software especializadas</p>
             </div>
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3>Análisis Financiero</h3>
-                    <p>Transformo datos financieros complejos en informes claros y dashboards interactivos que facilitan la toma de decisiones estratégicas.</p>
+                    <h3>Análisis de Datos</h3>
+                    <p>Transformo datos complejos en informes claros y dashboards interactivos que facilitan la toma de decisiones estratégicas.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-database"></i>
                     </div>
                     <h3>Visualización de Datos</h3>
-                    <p>Creo visualizaciones impactantes en Power BI que comunican insights financieros de manera efectiva y comprensible.</p>
+                    <p>Creo visualizaciones impactantes en Power BI que comunican insights de manera efectiva y comprensible.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-cogs"></i>
+                        <i class="fas fa-laptop-code"></i>
                     </div>
-                    <h3>Automatización de Procesos</h3>
-                    <p>Desarrollo scripts en Python para automatizar procesos financieros repetitivos, aumentando la eficiencia operativa.</p>
+                    <h3>Desarrollo Web</h3>
+                    <p>Diseño y desarrollo sitios web y aplicaciones personalizadas que se adaptan a las necesidades específicas de cada cliente.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-title">
+                <h2>Portafolio</h2>
+                <p>Algunos de mis proyectos más destacados</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="ToroTech" class="portfolio-img">
+                    <div class="portfolio-content">
+                        <h3>ToroTech</h3>
+                        <p>Mi empresa personal especializada en análisis de datos y desarrollo de software. Ofrecemos soluciones tecnológicas personalizadas para empresas de diversos sectores.</p>
+                        <a href="https://torotech83.web.app/" target="_blank" class="portfolio-link">Ver Proyecto →</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="PowerPuff IT" class="portfolio-img">
+                    <div class="portfolio-content">
+                        <h3>PowerPuff IT - Tienda Deportiva</h3>
+                        <p>Sistema de gestión desarrollado para una tienda deportiva, incluyendo inventario, ventas y reportes automatizados.</p>
+                        <a href="https://powerpuffit.web.app/" target="_blank" class="portfolio-link">Ver Proyecto →</a>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Análisis Financiero" class="portfolio-img">
+                    <div class="portfolio-content">
+                        <h3>Dashboard Financiero</h3>
+                        <p>Dashboard interactivo desarrollado en Power BI para análisis de indicadores financieros y tendencias de mercado.</p>
+                        <a href="#" class="portfolio-link">Ver Proyecto →</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -926,9 +1030,16 @@
         <div class="container">
             <div class="section-title">
                 <h2>Experiencia y Formación</h2>
-                <p>Mi trayectoria profesional y educativa en el ámbito financiero y tecnológico</p>
+                <p>Mi trayectoria profesional y educativa en el ámbito tecnológico y financiero</p>
             </div>
             <div class="experience-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-date">2023 – Actualidad</div>
+                        <h3>Fundador - ToroTech</h3>
+                        <p>Análisis de datos y desarrollo de software para empresas de diversos sectores.</p>
+                    </div>
+                </div>
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <div class="timeline-date">2025 – Actualidad</div>
@@ -947,7 +1058,7 @@
                     <div class="timeline-content">
                         <div class="timeline-date">2025</div>
                         <h3>Google Data Analytics</h3>
-                        <p>Google </p>
+                        <p>Google</p>
                     </div>
                 </div>
                 <div class="timeline-item">
@@ -1039,108 +1150,53 @@
 
     <!-- Footer -->
     <footer>
-    <div class="container">
-        <div class="social-links">
-            <a href="https://www.linkedin.com/in/fabian-moreno-monroy/" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="https://github.com/FabianMorenoMonroy" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="https://www.instagram.com/torotech83?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/fabian-moreno-monroy/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/FabianMorenoMonroy" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/torotech83?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p class="copyright">&copy; 2023 Fabián Moreno Monroy.</p>
         </div>
-        <p class="copyright">&copy; 2023 Fabián Moreno Monroy.</p>
-    </div>
-</footer>
+    </footer>
+
     <script>
-        // Menu Toggle
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-        
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+        // Toggle menu for mobile
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
         });
-        
-        // Smooth Scrolling
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por tu mensaje! Me pondré en contacto contigo pronto.');
+            this.reset();
+        });
+
+        // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 
                 const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
+                if (targetId === '#') return;
                 
                 const targetElement = document.querySelector(targetId);
-                if(targetElement) {
+                if (targetElement) {
                     window.scrollTo({
                         top: targetElement.offsetTop - 80,
                         behavior: 'smooth'
                     });
-                    
-                    // Close mobile menu after clicking a link
-                    if(navLinks.classList.contains('active')) {
-                        navLinks.classList.remove('active');
-                    }
                 }
             });
-        });
-        
-        const contactForm = document.getElementById('contactForm');
-contactForm.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Obtener los valores del formulario
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-    
-    // Crear el mensaje para WhatsApp
-    const whatsappMessage = `*Nuevo mensaje de contacto*%0A%0A*Nombre:* ${name}%0A*Email:* ${email}%0A*Mensaje:* ${message}`;
-    
-    // Tu número de WhatsApp (cambia esto por tu número)
-    const phoneNumber = "525569312582"; // Reemplaza con tu número
-    
-    // Crear el enlace de WhatsApp
-    const whatsappURL = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
-    
-    // Abrir WhatsApp en una nueva pestaña
-    window.open(whatsappURL, '_blank');
-    
-    alert('¡Gracias por tu mensaje! Serás redirigido a WhatsApp.');
-    this.reset();
-});
-        // Animate skill bars on scroll
-        const animateSkillBars = () => {
-            const skillBars = document.querySelectorAll('.skill-progress');
-            skillBars.forEach(bar => {
-                const width = bar.style.width;
-                bar.style.width = '0';
-                
-                setTimeout(() => {
-                    bar.style.width = width;
-                }, 300);
-            });
-        };
-        
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.3
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if(entry.isIntersecting) {
-                    if(entry.target.id === 'about') {
-                        animateSkillBars();
-                    }
-                    entry.target.style.opacity = 1;
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-        
-        // Observe sections for animation
-        document.querySelectorAll('section').forEach(section => {
-            section.style.opacity = 0;
-            section.style.transform = 'translateY(20px)';
-            section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-            observer.observe(section);
         });
     </script>
 </body>
