@@ -47,9 +47,9 @@
             background-position: center;
         }
         
-        /* Header - Navbar Siempre Transparente */
+        /* Header - Navbar Completamente Transparente */
         header {
-            background-color: rgba(74, 85, 104, 0.95);
+            background-color: rgba(74, 85, 104, 0.1);
             backdrop-filter: blur(10px);
             color: var(--light-text);
             padding: 0.8rem 0;
@@ -480,41 +480,48 @@
             color: var(--primary-color);
         }
         
-        /* Portfolio Section with Carousel */
+        /* Portfolio Section with Horizontal Carousel */
         .portfolio {
             background-color: transparent;
             position: relative;
             overflow: hidden;
         }
         
-        .carousel-container {
+        .portfolio-carousel-container {
             position: relative;
             max-width: 1200px;
             margin: 0 auto;
             overflow: hidden;
         }
         
-        .carousel-track {
+        .portfolio-carousel-track {
             display: flex;
+            gap: 2rem;
+            padding: 1rem 0;
             transition: transform 0.5s ease;
+            overflow-x: auto;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent-color) var(--gray-lighter);
+            scroll-behavior: smooth;
+        }
+        
+        .portfolio-carousel-track::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .portfolio-carousel-track::-webkit-scrollbar-track {
+            background: var(--gray-lighter);
+            border-radius: 10px;
+        }
+        
+        .portfolio-carousel-track::-webkit-scrollbar-thumb {
+            background: var(--accent-color);
+            border-radius: 10px;
         }
         
         .portfolio-item {
-            flex: 0 0 100%;
-            padding: 0 15px;
+            flex: 0 0 300px;
             box-sizing: border-box;
-        }
-        
-        @media (min-width: 768px) {
-            .portfolio-item {
-                flex: 0 0 50%;
-            }
-        }
-        
-        @media (min-width: 992px) {
-            .portfolio-item {
-                flex: 0 0 33.333%;
-            }
         }
         
         .portfolio-card {
@@ -565,14 +572,14 @@
             color: var(--accent-secondary);
         }
         
-        .carousel-nav {
+        .portfolio-carousel-nav {
             display: flex;
             justify-content: center;
             margin-top: 2rem;
             gap: 1rem;
         }
         
-        .carousel-btn {
+        .portfolio-carousel-btn {
             background-color: var(--accent-color);
             color: var(--light-text);
             border: none;
@@ -586,28 +593,8 @@
             transition: var(--transition);
         }
         
-        .carousel-btn:hover {
+        .portfolio-carousel-btn:hover {
             background-color: var(--accent-secondary);
-        }
-        
-        .carousel-dots {
-            display: flex;
-            justify-content: center;
-            margin-top: 1rem;
-            gap: 0.5rem;
-        }
-        
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: var(--gray-light);
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        
-        .dot.active {
-            background-color: var(--accent-color);
         }
         
         /* Experience Section - Timeline Horizontal */
@@ -891,6 +878,10 @@
             .timeline-item-horizontal {
                 flex: 0 0 280px;
             }
+            
+            .portfolio-item {
+                flex: 0 0 280px;
+            }
         }
         
         @media (max-width: 576px) {
@@ -923,6 +914,10 @@
             .nav-profile {
                 width: 35px;
                 height: 35px;
+            }
+            
+            .portfolio-item {
+                flex: 0 0 260px;
             }
         }
     </style>
@@ -1065,15 +1060,15 @@
         </div>
     </section>
 
-    <!-- Portfolio Section with Carousel -->
+    <!-- Portfolio Section with Horizontal Carousel -->
     <section id="portfolio" class="portfolio">
         <div class="container">
             <div class="section-title">
                 <h2>Portafolio</h2>
                 <p>Algunos de mis proyectos más destacados</p>
             </div>
-            <div class="carousel-container">
-                <div class="carousel-track" id="carouselTrack">
+            <div class="portfolio-carousel-container">
+                <div class="portfolio-carousel-track" id="portfolioCarouselTrack">
                     <div class="portfolio-item">
                         <div class="portfolio-card">
                             <img src="static/logo_borregos.png" alt="Gestión Borregos" class="portfolio-img">
@@ -1105,16 +1100,13 @@
                         </div>
                     </div>
                 </div>
-                <div class="carousel-nav">
-                    <button class="carousel-btn" id="prevBtn">
+                <div class="portfolio-carousel-nav">
+                    <button class="portfolio-carousel-btn" id="portfolioPrevBtn">
                         <i class="fas fa-chevron-left"></i>
                     </button>
-                    <button class="carousel-btn" id="nextBtn">
+                    <button class="portfolio-carousel-btn" id="portfolioNextBtn">
                         <i class="fas fa-chevron-right"></i>
                     </button>
-                </div>
-                <div class="carousel-dots" id="carouselDots">
-                    <!-- Dots will be generated by JavaScript -->
                 </div>
             </div>
         </div>
@@ -1294,73 +1286,36 @@
             });
         });
 
-        // Portfolio Carousel
-        const track = document.getElementById('carouselTrack');
-        const items = document.querySelectorAll('.portfolio-item');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const dotsContainer = document.getElementById('carouselDots');
+        // Portfolio Horizontal Carousel
+        const portfolioTrack = document.getElementById('portfolioCarouselTrack');
+        const portfolioPrevBtn = document.getElementById('portfolioPrevBtn');
+        const portfolioNextBtn = document.getElementById('portfolioNextBtn');
+        const portfolioItems = document.querySelectorAll('.portfolio-item');
         
-        let currentIndex = 0;
-        const itemsPerView = getItemsPerView();
+        let portfolioCurrentPosition = 0;
+        const portfolioItemWidth = 300 + 32; // 300px + 32px gap
         
-        // Create dots
-        items.forEach((_, index) => {
-            const dot = document.createElement('div');
-            dot.classList.add('dot');
-            if (index === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => {
-                goToSlide(index);
-            });
-            dotsContainer.appendChild(dot);
-        });
-        
-        function getItemsPerView() {
-            if (window.innerWidth < 768) return 1;
-            if (window.innerWidth < 992) return 2;
-            return 3;
+        function updatePortfolioCarousel() {
+            portfolioTrack.style.transform = `translateX(-${portfolioCurrentPosition}px)`;
         }
         
-        function updateCarousel() {
-            const itemWidth = 100 / itemsPerView;
-            track.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
-            
-            // Update dots
-            document.querySelectorAll('.dot').forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentIndex);
-            });
-        }
-        
-        function goToSlide(index) {
-            const maxIndex = Math.max(0, items.length - itemsPerView);
-            currentIndex = Math.max(0, Math.min(index, maxIndex));
-            updateCarousel();
-        }
-        
-        prevBtn.addEventListener('click', () => {
-            if (currentIndex > 0) {
-                currentIndex--;
-                updateCarousel();
+        portfolioNextBtn.addEventListener('click', () => {
+            const maxPosition = (portfolioItems.length - 1) * portfolioItemWidth;
+            if (portfolioCurrentPosition < maxPosition) {
+                portfolioCurrentPosition += portfolioItemWidth;
+                updatePortfolioCarousel();
             }
         });
         
-        nextBtn.addEventListener('click', () => {
-            const maxIndex = Math.max(0, items.length - itemsPerView);
-            if (currentIndex < maxIndex) {
-                currentIndex++;
-                updateCarousel();
+        portfolioPrevBtn.addEventListener('click', () => {
+            if (portfolioCurrentPosition > 0) {
+                portfolioCurrentPosition -= portfolioItemWidth;
+                updatePortfolioCarousel();
             }
         });
         
-        // Update carousel on resize
-        window.addEventListener('resize', () => {
-            const newItemsPerView = getItemsPerView();
-            currentIndex = 0;
-            updateCarousel();
-        });
-        
-        // Initialize carousel
-        updateCarousel();
+        // Initialize portfolio carousel
+        updatePortfolioCarousel();
     </script>
 </body>
 </html>
