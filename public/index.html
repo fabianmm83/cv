@@ -14,11 +14,14 @@
             --secondary-color: #f5f7fa;
             --accent-color: #3498db;
             --accent-secondary: #7f8c8d;
+            --whatsapp-color: #25D366;
             --text-color: #2c3e50;
             --light-text: #ffffff;
             --card-bg: #ffffff;
+            --finance-pattern: #ecf0f1;
             --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             --transition: all 0.3s ease;
+            --gray-dark: #34495e;
             --gray-medium: #7f8c8d;
             --gray-light: #bdc3c7;
             --gray-lighter: #ecf0f1;
@@ -68,11 +71,13 @@
             font-weight: 700;
             text-transform: none;
             letter-spacing: 1px;
+            color: var(--light-text);
+            text-decoration: none;
+            transition: var(--transition);
         }
         
-        .logo span {
+        .logo:hover {
             color: var(--accent-color);
-            text-transform: none;
         }
         
         .nav-links {
@@ -118,13 +123,52 @@
             color: var(--light-text);
         }
         
+        /* WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 25px;
+            right: 25px;
+            background-color: var(--whatsapp-color);
+            color: var(--light-text);
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 100;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: pulse 2s infinite;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+        
         /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             background: 
-                linear-gradient(135deg, rgba(44, 62, 80, 0.9) 0%, rgba(52, 152, 219, 0.8) 100%);
+                linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.85)),
+                url('static/fondo.jpeg') center/cover no-repeat;
             color: var(--light-text);
             padding-top: 80px;
             position: relative;
@@ -283,7 +327,7 @@
         
         /* About Section */
         .about {
-            background-color: var(--gray-lighter);
+            background-color: var(--finance-pattern);
             position: relative;
             overflow: hidden;
         }
@@ -379,7 +423,7 @@
         
         /* Experience Section */
         .experience {
-            background-color: var(--gray-lighter);
+            background-color: var(--finance-pattern);
             position: relative;
         }
         
@@ -764,12 +808,11 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <div class="logo">Fabian Moreno Monroy</div>
+                <a href="#home" class="logo">Fabian Moreno Monroy</a>
                 <div class="menu-toggle">
                     <i class="fas fa-bars"></i>
                 </div>
                 <ul class="nav-links">
-                    <li><a href="#home">Inicio</a></li>
                     <li><a href="#about">Acerca de</a></li>
                     <li><a href="#services">Servicios</a></li>
                     <li><a href="#portfolio">Portafolio</a></li>
@@ -779,6 +822,11 @@
             </nav>
         </div>
     </header>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/525569312582?text=Hola%20Fabián,%20me%20interesa%20tu%20perfil%20como%20analista%20de%20datos" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -794,7 +842,7 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Fabian Moreno Monroy" class="profile-img">
+                    <img src="static/perfil.png" alt="Fabian Moreno Monroy" class="profile-img">
                 </div>
             </div>
         </div>
@@ -902,27 +950,27 @@
             </div>
             <div class="portfolio-grid">
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Gestión Borregos" class="portfolio-img">
+                    <img src="static/logo_borregos.png" alt="Gestión Borregos" class="portfolio-img">
                     <div class="portfolio-content">
                         <h3>Sistema de Gestión de Borregos</h3>
                         <p>Software desarrollado para la gestión integral de una empresa familiar de borregos. Incluye control de inventario, seguimiento de animales, registros de salud y reportes automatizados.</p>
-                        <a href="#" class="portfolio-link">Ver Proyecto →</a>
+                        <a href="https://gestionborregos.web.app/" target="_blank" class="portfolio-link">Ver Proyecto →</a>
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Finanzas Personales" class="portfolio-img">
+                    <img src="static/logo_finanzas.png" alt="Finanzas Personales" class="portfolio-img">
                     <div class="portfolio-content">
                         <h3>App de Finanzas Personales</h3>
                         <p>Aplicación web para gestión de finanzas personales con seguimiento de ingresos, gastos, presupuestos y reportes visuales. Desarrollada con tecnologías modernas y diseño responsivo.</p>
-                        <a href="#" class="portfolio-link">Ver Proyecto →</a>
+                        <a href="https://finanzas-personales-torotech83.web.app/" target="_blank" class="portfolio-link">Ver Proyecto →</a>
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="PowerPuff IT" class="portfolio-img">
+                    <img src="static/logo_pp.png" alt="PowerPuff IT" class="portfolio-img">
                     <div class="portfolio-content">
                         <h3>PowerPuff IT - Tienda Deportiva</h3>
                         <p>Sistema de gestión desarrollado para una tienda deportiva, incluyendo inventario, ventas, clientes y reportes automatizados para optimizar operaciones comerciales.</p>
-                        <a href="#" class="portfolio-link">Ver Proyecto →</a>
+                        <a href="https://powerpuffit.web.app/" target="_blank" class="portfolio-link">Ver Proyecto →</a>
                     </div>
                 </div>
             </div>
@@ -1056,10 +1104,10 @@
     <footer>
         <div class="container">
             <div class="social-links">
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="www.linkedin.com/in/fabián-moreno-monroy83" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/fabianmm83" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="www.linkedin.com/in/fabián-moreno-monroy83"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/torotech83?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a>
             </div>
             <p class="copyright">&copy; 2025 Fabián Moreno Monroy.</p>
         </div>
