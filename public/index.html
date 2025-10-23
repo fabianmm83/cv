@@ -33,6 +33,10 @@
             box-sizing: border-box;
         }
         
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
@@ -42,7 +46,7 @@
             position: relative;
         }
         
-        /* Fondo de lluvia */
+        /* Fondo de lluvia - Simplificado para mejor rendimiento en móvil */
         .rain-container {
             position: fixed;
             top: 0;
@@ -51,181 +55,7 @@
             height: 100%;
             z-index: -1;
             pointer-events: none;
-        }
-        
-        .rain-container::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            z-index: 1;
-            background-image: radial-gradient(
-                ellipse 1.5px 2px at 1.5px 50%,
-                #0000 0,
-                #0000 90%,
-                #000 100%
-            );
-            background-size: 25px 8px;
-        }
-
-        .rain-container {
-            --c: #09f;
-            background-color: #000;
-            background-image: radial-gradient(4px 100px at 0px 235px, var(--c), #0000),
-                radial-gradient(4px 100px at 300px 235px, var(--c), #0000),
-                radial-gradient(1.5px 1.5px at 150px 117.5px, var(--c) 100%, #0000 150%),
-                radial-gradient(4px 100px at 0px 252px, var(--c), #0000),
-                radial-gradient(4px 100px at 300px 252px, var(--c), #0000),
-                radial-gradient(1.5px 1.5px at 150px 126px, var(--c) 100%, #0000 150%),
-                radial-gradient(4px 100px at 0px 150px, var(--c), #0000),
-                radial-gradient(4px 100px at 300px 150px, var(--c), #0000),
-                radial-gradient(1.5px 1.5px at 150px 75px, var(--c) 100%, #0000 150%),
-                radial-gradient(4px 100px at 0px 253px, var(--c), #0000),
-                radial-gradient(4px 100px at 300px 253px, var(--c), #0000),
-                radial-gradient(1.5px 1.5px at 150px 126.5px, var(--c) 100%, #0000 150%),
-                radial-gradient(4px 100px at 0px 204px, var(--c), #0000),
-                radial-gradient(4px 100px at 300px 204px, var(--c), #0000),
-                radial-gradient(1.5px 1.5px at 150px 102px, var(--c) 100%, #0000 150%),
-                radial-gradient(4px 100px at 0px 134px, var(--c), #0000),
-                radial-gradient(4px 100px at 300px 134px, var(--c), #0000),
-                radial-gradient(1.5px 1.5px at 150px 67px, var(--c) 100%, #0000 150%),
-                radial-gradient(4px 100px at 0px 179px, var(--c), #0000),
-                radial-gradient(4px 100px at 300px 179px, var(--c), #0000),
-                radial-gradient(1.5px 1.5px at 150px 89.5px, var(--c) 100%, #0000 150%),
-                radial-gradient(4px 100px at 0px 299px, var(--c), #0000),
-                radial-gradient(4px 100px at 300px 299px, var(--c), #0000),
-                radial-gradient(1.5px 1.5px at 150px 149.5px, var(--c) 100%, #0000 150%),
-                radial-gradient(4px 100px at 0px 215px, var(--c), #0000),
-                radial-gradient(4px 100px at 300px 215px, var(--c), #0000),
-                radial-gradient(1.5px 1.5px at 150px 107.5px, var(--c) 100%, #0000 150%),
-                radial-gradient(4px 100px at 0px 281px, var(--c), #0000),
-                radial-gradient(4px 100px at 300px 281px, var(--c), #0000),
-                radial-gradient(1.5px 1.5px at 150px 140.5px, var(--c) 100%, #0000 150%),
-                radial-gradient(4px 100px at 0px 158px, var(--c), #0000),
-                radial-gradient(4px 100px at 300px 158px, var(--c), #0000),
-                radial-gradient(1.5px 1.5px at 150px 79px, var(--c) 100%, #0000 150%),
-                radial-gradient(4px 100px at 0px 210px, var(--c), #0000),
-                radial-gradient(4px 100px at 300px 210px, var(--c), #0000),
-                radial-gradient(1.5px 1.5px at 150px 105px, var(--c) 100%, #0000 150%);
-            background-size:
-                300px 235px,
-                300px 235px,
-                300px 235px,
-                300px 252px,
-                300px 252px,
-                300px 252px,
-                300px 150px,
-                300px 150px,
-                300px 150px,
-                300px 253px,
-                300px 253px,
-                300px 253px,
-                300px 204px,
-                300px 204px,
-                300px 204px,
-                300px 134px,
-                300px 134px,
-                300px 134px,
-                300px 179px,
-                300px 179px,
-                300px 179px,
-                300px 299px,
-                300px 299px,
-                300px 299px,
-                300px 215px,
-                300px 215px,
-                300px 215px,
-                300px 281px,
-                300px 281px,
-                300px 281px,
-                300px 158px,
-                300px 158px,
-                300px 158px,
-                300px 210px,
-                300px 210px,
-                300px 210px;
-            animation: hi 150s linear infinite;
-        }
-
-        @keyframes hi {
-            0% {
-                background-position:
-                    0px 220px,
-                    3px 220px,
-                    151.5px 337.5px,
-                    25px 24px,
-                    28px 24px,
-                    176.5px 150px,
-                    50px 16px,
-                    53px 16px,
-                    201.5px 91px,
-                    75px 224px,
-                    78px 224px,
-                    226.5px 350.5px,
-                    100px 19px,
-                    103px 19px,
-                    251.5px 121px,
-                    125px 120px,
-                    128px 120px,
-                    276.5px 187px,
-                    150px 31px,
-                    153px 31px,
-                    301.5px 120.5px,
-                    175px 235px,
-                    178px 235px,
-                    326.5px 384.5px,
-                    200px 121px,
-                    203px 121px,
-                    351.5px 228.5px,
-                    225px 224px,
-                    228px 224px,
-                    376.5px 364.5px,
-                    250px 26px,
-                    253px 26px,
-                    401.5px 105px,
-                    275px 75px,
-                    278px 75px,
-                    426.5px 180px;
-            }
-
-            to {
-                background-position:
-                    0px 6800px,
-                    3px 6800px,
-                    151.5px 6917.5px,
-                    25px 13632px,
-                    28px 13632px,
-                    176.5px 13758px,
-                    50px 5416px,
-                    53px 5416px,
-                    201.5px 5491px,
-                    75px 17175px,
-                    78px 17175px,
-                    226.5px 17301.5px,
-                    100px 5119px,
-                    103px 5119px,
-                    251.5px 5221px,
-                    125px 8428px,
-                    128px 8428px,
-                    276.5px 8495px,
-                    150px 9876px,
-                    153px 9876px,
-                    301.5px 9965.5px,
-                    175px 13391px,
-                    178px 13391px,
-                    326.5px 13540.5px,
-                    200px 14741px,
-                    203px 14741px,
-                    351.5px 14848.5px,
-                    225px 18770px,
-                    228px 18770px,
-                    376.5px 18910.5px,
-                    250px 5082px,
-                    253px 5082px,
-                    401.5px 5161px,
-                    275px 6375px,
-                    278px 6375px,
-                    426.5px 6480px;
-            }
+            background: linear-gradient(135deg, #000 0%, #1a202c 100%);
         }
         
         /* Header - Navbar Completamente Transparente */
@@ -337,7 +167,6 @@
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            display: flex;
             align-items: center;
             justify-content: center;
             transition: var(--transition);
@@ -681,6 +510,7 @@
             scrollbar-width: thin;
             scrollbar-color: var(--accent-color) rgba(255, 255, 255, 0.2);
             scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
         }
         
         .portfolio-carousel-track::-webkit-scrollbar {
@@ -752,31 +582,6 @@
             color: var(--accent-secondary);
         }
         
-        .portfolio-carousel-nav {
-            display: flex;
-            justify-content: center;
-            margin-top: 2rem;
-            gap: 1rem;
-        }
-        
-        .portfolio-carousel-btn {
-            background-color: var(--accent-color);
-            color: var(--light-text);
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-        
-        .portfolio-carousel-btn:hover {
-            background-color: var(--accent-secondary);
-        }
-        
         /* Experience Section - Timeline Horizontal */
         .experience {
             background-color: rgba(0, 0, 0, 0.5);
@@ -790,6 +595,7 @@
             gap: 2rem;
             scrollbar-width: thin;
             scrollbar-color: var(--accent-color) rgba(255, 255, 255, 0.2);
+            -webkit-overflow-scrolling: touch;
         }
         
         .horizontal-timeline::-webkit-scrollbar {
@@ -924,6 +730,7 @@
             color: var(--light-text);
             font-family: inherit;
             transition: var(--transition);
+            font-size: 16px; /* Previene zoom en iOS */
         }
         
         .form-control:focus {
@@ -979,8 +786,25 @@
             font-size: 0.9rem;
             opacity: 0.7;
         }
-        
-        /* Responsive */
+
+        /* ========== CORRECCIONES RESPONSIVE ========== */
+
+        /* Tablets y móviles grandes */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.6rem;
+            }
+            
+            .profile-img {
+                max-width: 320px;
+            }
+        }
+
+        /* Tablets pequeñas y móviles */
         @media (max-width: 768px) {
             .menu-toggle {
                 display: flex;
@@ -1027,22 +851,32 @@
                 font-size: 1.4rem;
             }
             
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
             .hero-content {
                 flex-direction: column;
                 text-align: center;
+                gap: 2rem;
             }
             
             .hero-text {
                 order: 2;
+                max-width: 100%;
             }
             
             .hero-image {
                 order: 1;
-                margin-bottom: 2rem;
+                margin-bottom: 0;
             }
             
             .profile-img {
                 max-width: 280px;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
             }
             
             .horizontal-timeline {
@@ -1056,9 +890,27 @@
             .portfolio-item {
                 flex: 0 0 280px;
             }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            
+            .service-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
         }
         
+        /* Móviles pequeños */
         @media (max-width: 576px) {
+            .container {
+                width: 95%;
+            }
+            
             .section-title h2 {
                 font-size: 2rem;
             }
@@ -1066,7 +918,14 @@
             .btn {
                 display: block;
                 margin: 0.5rem auto;
-                width: 80%;
+                width: 100%;
+                max-width: 250px;
+            }
+            
+            .hero-buttons {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
             }
             
             .profile-img {
@@ -1092,6 +951,61 @@
             
             .portfolio-item {
                 flex: 0 0 260px;
+            }
+            
+            .timeline-item-horizontal {
+                flex: 0 0 260px;
+                padding: 1.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero h2 {
+                font-size: 1.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                font-size: 24px;
+                bottom: 20px;
+                right: 20px;
+            }
+        }
+
+        /* Móviles muy pequeños */
+        @media (max-width: 375px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .profile-img {
+                max-width: 220px;
+            }
+            
+            .portfolio-item {
+                flex: 0 0 240px;
+            }
+            
+            .timeline-item-horizontal {
+                flex: 0 0 240px;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* Corrección para Safari iOS */
+        @supports (-webkit-touch-callout: none) {
+            .hero {
+                min-height: -webkit-fill-available;
             }
         }
     </style>
@@ -1277,7 +1191,6 @@
                         </div>
                     </div>
                 </div>
-                
             </div>
         </div>
     </section>
@@ -1409,10 +1322,10 @@
     <footer>
         <div class="container">
             <div class="social-links">
-                <a href="www.linkedin.com/in/fabián-moreno-monroy83" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.linkedin.com/in/fabián-moreno-monroy83" target="_blank"><i class="fab fa-linkedin"></i></a>
                 <a href="https://github.com/fabianmm83" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="www.linkedin.com/in/fabián-moreno-monroy83"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.instagram.com/torotech83?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://twitter.com/torotech83" target="_blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/torotech83" target="_blank"><i class="fab fa-instagram"></i></a>
             </div>
             <p class="copyright">&copy; 2025 Fabián Moreno Monroy.</p>
         </div>
@@ -1456,36 +1369,15 @@
             });
         });
 
-        // Portfolio Horizontal Carousel
-        const portfolioTrack = document.getElementById('portfolioCarouselTrack');
-        const portfolioPrevBtn = document.getElementById('portfolioPrevBtn');
-        const portfolioNextBtn = document.getElementById('portfolioNextBtn');
-        const portfolioItems = document.querySelectorAll('.portfolio-item');
-        
-        let portfolioCurrentPosition = 0;
-        const portfolioItemWidth = 300 + 32; // 300px + 32px gap
-        
-        function updatePortfolioCarousel() {
-            portfolioTrack.style.transform = `translateX(-${portfolioCurrentPosition}px)`;
-        }
-        
-        portfolioNextBtn.addEventListener('click', () => {
-            const maxPosition = (portfolioItems.length - 1) * portfolioItemWidth;
-            if (portfolioCurrentPosition < maxPosition) {
-                portfolioCurrentPosition += portfolioItemWidth;
-                updatePortfolioCarousel();
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('navbar');
+            if (window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(74, 85, 104, 0.9)';
+            } else {
+                header.style.backgroundColor = 'rgba(74, 85, 104, 0.1)';
             }
         });
-        
-        portfolioPrevBtn.addEventListener('click', () => {
-            if (portfolioCurrentPosition > 0) {
-                portfolioCurrentPosition -= portfolioItemWidth;
-                updatePortfolioCarousel();
-            }
-        });
-        
-        // Initialize portfolio carousel
-        updatePortfolioCarousel();
     </script>
 </body>
 </html>
