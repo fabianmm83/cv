@@ -14,14 +14,11 @@
             --secondary-color: #f5f7fa;
             --accent-color: #3498db;
             --accent-secondary: #7f8c8d;
-            --whatsapp-color: #25D366;
             --text-color: #2c3e50;
             --light-text: #ffffff;
             --card-bg: #ffffff;
-            --finance-pattern: #ecf0f1;
             --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
             --transition: all 0.3s ease;
-            --gray-dark: #34495e;
             --gray-medium: #7f8c8d;
             --gray-light: #bdc3c7;
             --gray-lighter: #ecf0f1;
@@ -39,12 +36,6 @@
             color: var(--text-color);
             background-color: var(--secondary-color);
             overflow-x: hidden;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(236, 240, 241, 0.5) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(236, 240, 241, 0.5) 0%, transparent 20%),
-                linear-gradient(45deg, transparent 49%, rgba(52, 152, 219, 0.03) 49%, rgba(52, 152, 219, 0.03) 51%, transparent 51%),
-                linear-gradient(-45deg, transparent 49%, rgba(52, 152, 219, 0.03) 49%, rgba(52, 152, 219, 0.03) 51%, transparent 51%);
-            background-size: 100% 100%, 100% 100%, 30px 30px, 30px 30px;
         }
         
         /* Header */
@@ -127,52 +118,13 @@
             color: var(--light-text);
         }
         
-        /* WhatsApp Button */
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 25px;
-            right: 25px;
-            background-color: var(--whatsapp-color);
-            color: var(--light-text);
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-            z-index: 100;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: pulse 2s infinite;
-        }
-        
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
-        }
-        
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
-            }
-            70% {
-                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
-            }
-            100% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-            }
-        }
-        
         /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             background: 
-                linear-gradient(135deg, rgba(44, 62, 80, 0.9) 0%, rgba(52, 152, 219, 0.8) 100%),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%232c3e50"/><path d="M0 50 L100 50 M50 0 L50 100" stroke="%233498db" stroke-width="1" opacity="0.2"/><circle cx="20" cy="20" r="2" fill="%233498db" opacity="0.3"/><circle cx="80" cy="80" r="2" fill="%233498db" opacity="0.3"/><circle cx="80" cy="20" r="2" fill="%233498db" opacity="0.3"/><circle cx="20" cy="80" r="2" fill="%233498db" opacity="0.3"/></svg>');
+                linear-gradient(135deg, rgba(44, 62, 80, 0.9) 0%, rgba(52, 152, 219, 0.8) 100%);
             color: var(--light-text);
             padding-top: 80px;
             position: relative;
@@ -331,20 +283,9 @@
         
         /* About Section */
         .about {
-            background-color: var(--finance-pattern);
+            background-color: var(--gray-lighter);
             position: relative;
             overflow: hidden;
-        }
-        
-        .about::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 200px;
-            height: 200px;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20,20 Q50,0 80,20 T100,50 T80,80 T50,100 T20,80 T0,50 T20,20 Z" fill="%233498db" opacity="0.05"/></svg>');
-            background-size: contain;
         }
         
         .about-content {
@@ -400,17 +341,6 @@
             position: relative;
         }
         
-        .services::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 150px;
-            height: 150px;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="50,10 90,90 10,90" fill="%233498db" opacity="0.05"/></svg>');
-            background-size: contain;
-        }
-        
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -449,19 +379,8 @@
         
         /* Experience Section */
         .experience {
-            background-color: var(--finance-pattern);
+            background-color: var(--gray-lighter);
             position: relative;
-        }
-        
-        .experience::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100px;
-            height: 100px;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="10" y="10" width="80" height="80" rx="10" fill="%232c3e50" opacity="0.05"/></svg>');
-            background-size: contain;
         }
         
         .experience-timeline {
@@ -616,17 +535,6 @@
             color: var(--light-text);
             position: relative;
             overflow: hidden;
-        }
-        
-        .contact::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 200px;
-            height: 200px;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50,10 C70,10 90,30 90,50 C90,70 70,90 50,90 C30,90 10,70 10,50 C10,30 30,10 50,10 Z" fill="%233498db" opacity="0.05"/></svg>');
-            background-size: contain;
         }
         
         .contact .section-title h2 {
@@ -872,11 +780,6 @@
         </div>
     </header>
 
-    <!-- WhatsApp Button -->
-    <a href="https://wa.me/525569312582?text=Hola%20Fabián,%20me%20interesa%20tu%20perfil%20como%20analista%20de%20datos" class="whatsapp-float" target="_blank">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
@@ -891,8 +794,7 @@
                     </div>
                 </div>
                 <div class="hero-image">
-                    <!-- Ruta CORRECTA según tu estructura -->
-                    <img src="static/perfil.png" alt="Fabian Moreno Monroy" class="profile-img">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Fabian Moreno Monroy" class="profile-img">
                 </div>
             </div>
         </div>
@@ -1000,27 +902,27 @@
             </div>
             <div class="portfolio-grid">
                 <div class="portfolio-item">
-                    <img src="static/logo_borregos.png" alt="Gestión Borregos" class="portfolio-img">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Gestión Borregos" class="portfolio-img">
                     <div class="portfolio-content">
                         <h3>Sistema de Gestión de Borregos</h3>
                         <p>Software desarrollado para la gestión integral de una empresa familiar de borregos. Incluye control de inventario, seguimiento de animales, registros de salud y reportes automatizados.</p>
-                        <a href="https://gestionborregos.web.app/" target="_blank" class="portfolio-link">Ver Proyecto →</a>
+                        <a href="#" class="portfolio-link">Ver Proyecto →</a>
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="static/logo_finanzas.png" alt="Finanzas Personales" class="portfolio-img">
+                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Finanzas Personales" class="portfolio-img">
                     <div class="portfolio-content">
                         <h3>App de Finanzas Personales</h3>
                         <p>Aplicación web para gestión de finanzas personales con seguimiento de ingresos, gastos, presupuestos y reportes visuales. Desarrollada con tecnologías modernas y diseño responsivo.</p>
-                        <a href="https://finanzas-personales-torotech83.web.app/" target="_blank" class="portfolio-link">Ver Proyecto →</a>
+                        <a href="#" class="portfolio-link">Ver Proyecto →</a>
                     </div>
                 </div>
                 <div class="portfolio-item">
-                    <img src="static/logo_pp.png" alt="PowerPuff IT" class="portfolio-img">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="PowerPuff IT" class="portfolio-img">
                     <div class="portfolio-content">
                         <h3>PowerPuff IT - Tienda Deportiva</h3>
                         <p>Sistema de gestión desarrollado para una tienda deportiva, incluyendo inventario, ventas, clientes y reportes automatizados para optimizar operaciones comerciales.</p>
-                        <a href="https://powerpuffit.web.app/" target="_blank" class="portfolio-link">Ver Proyecto →</a>
+                        <a href="#" class="portfolio-link">Ver Proyecto →</a>
                     </div>
                 </div>
             </div>
@@ -1154,10 +1056,10 @@
     <footer>
         <div class="container">
             <div class="social-links">
-                <a href="www.linkedin.com/in/fabián-moreno-monroy83" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/fabianmm83" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="www.linkedin.com/in/fabián-moreno-monroy83"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.instagram.com/torotech83?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
             <p class="copyright">&copy; 2025 Fabián Moreno Monroy.</p>
         </div>
