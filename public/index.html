@@ -39,11 +39,17 @@
             color: var(--text-color);
             background-color: var(--secondary-color);
             overflow-x: hidden;
+            background-image: 
+                linear-gradient(rgba(247, 250, 252, 0.9), rgba(247, 250, 252, 0.9)),
+                url('static/fondo.jpeg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
         }
         
         /* Header - Navbar Siempre Transparente */
         header {
-            background-color: rgba(74, 85, 104, 0.1);
+            background-color: rgba(74, 85, 104, 0.95);
             backdrop-filter: blur(10px);
             color: var(--light-text);
             padding: 0.8rem 0;
@@ -70,11 +76,11 @@
         .nav-left {
             display: flex;
             align-items: center;
-            gap: 1.5rem;
+            gap: 1rem;
         }
         
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 700;
             text-transform: none;
             letter-spacing: 1px;
@@ -88,8 +94,8 @@
         }
         
         .nav-profile {
-            width: 45px;
-            height: 45px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid rgba(255, 255, 255, 0.3);
@@ -107,7 +113,7 @@
         }
         
         .nav-links li {
-            margin-left: 2rem;
+            margin-left: 1.5rem;
         }
         
         .nav-links a {
@@ -117,6 +123,7 @@
             transition: var(--transition);
             position: relative;
             padding: 0.5rem 0;
+            font-size: 0.9rem;
         }
         
         .nav-links a:hover {
@@ -140,7 +147,7 @@
         
         .menu-toggle {
             display: none;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             cursor: pointer;
             color: var(--light-text);
             background: rgba(255, 255, 255, 0.1);
@@ -151,6 +158,7 @@
             align-items: center;
             justify-content: center;
             transition: var(--transition);
+            border: none;
         }
         
         .menu-toggle:hover {
@@ -327,6 +335,23 @@
         /* Sections */
         section {
             padding: 5rem 0;
+            position: relative;
+        }
+        
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(247, 250, 252, 0.9), rgba(247, 250, 252, 0.9)),
+                url('static/fondo.jpeg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            z-index: -1;
         }
         
         .section-title {
@@ -361,7 +386,7 @@
         
         /* About Section */
         .about {
-            background-color: var(--finance-pattern);
+            background-color: transparent;
             position: relative;
             overflow: hidden;
         }
@@ -415,7 +440,7 @@
         
         /* Services Section */
         .services {
-            background-color: var(--secondary-color);
+            background-color: transparent;
             position: relative;
         }
         
@@ -457,7 +482,7 @@
         
         /* Portfolio Section with Carousel */
         .portfolio {
-            background-color: var(--secondary-color);
+            background-color: transparent;
             position: relative;
             overflow: hidden;
         }
@@ -475,9 +500,21 @@
         }
         
         .portfolio-item {
-            flex: 0 0 33.333%;
+            flex: 0 0 100%;
             padding: 0 15px;
             box-sizing: border-box;
+        }
+        
+        @media (min-width: 768px) {
+            .portfolio-item {
+                flex: 0 0 50%;
+            }
+        }
+        
+        @media (min-width: 992px) {
+            .portfolio-item {
+                flex: 0 0 33.333%;
+            }
         }
         
         .portfolio-card {
@@ -573,97 +610,85 @@
             background-color: var(--accent-color);
         }
         
-        /* Experience Section */
+        /* Experience Section - Timeline Horizontal */
         .experience {
-            background-color: var(--finance-pattern);
+            background-color: transparent;
             position: relative;
         }
         
-        .experience-timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
+        .horizontal-timeline {
+            display: flex;
+            overflow-x: auto;
+            padding: 2rem 0;
+            gap: 2rem;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent-color) var(--gray-lighter);
         }
         
-        .experience-timeline::before {
-            content: '';
-            position: absolute;
-            width: 4px;
-            background: linear-gradient(to bottom, var(--accent-color), var(--accent-secondary));
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            margin-left: -2px;
-            border-radius: 2px;
+        .horizontal-timeline::-webkit-scrollbar {
+            height: 8px;
         }
         
-        .timeline-item {
-            padding: 20px 40px;
-            position: relative;
-            width: 50%;
-            box-sizing: border-box;
-        }
-        
-        .timeline-item:nth-child(odd) {
-            left: 0;
-            text-align: right;
-        }
-        
-        .timeline-item:nth-child(even) {
-            left: 50%;
-        }
-        
-        .timeline-content {
-            padding: 25px;
-            background-color: var(--card-bg);
+        .horizontal-timeline::-webkit-scrollbar-track {
+            background: var(--gray-lighter);
             border-radius: 10px;
+        }
+        
+        .horizontal-timeline::-webkit-scrollbar-thumb {
+            background: var(--accent-color);
+            border-radius: 10px;
+        }
+        
+        .timeline-item-horizontal {
+            flex: 0 0 300px;
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 2rem;
             box-shadow: var(--shadow);
             position: relative;
-            border-left: 4px solid var(--accent-color);
+            transition: var(--transition);
         }
         
-        .timeline-item:nth-child(odd) .timeline-content {
-            border-left: none;
-            border-right: 4px solid var(--accent-secondary);
+        .timeline-item-horizontal:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
         }
         
-        .timeline-content::after {
+        .timeline-item-horizontal::before {
             content: '';
             position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
             width: 20px;
             height: 20px;
-            right: -10px;
-            background-color: var(--card-bg);
-            top: 25px;
+            background-color: var(--accent-color);
             border-radius: 50%;
-            z-index: 1;
-            box-shadow: 0 0 0 4px var(--accent-color);
+            z-index: 2;
         }
         
-        .timeline-item:nth-child(even) .timeline-content::after {
-            left: -10px;
-            box-shadow: 0 0 0 4px var(--accent-secondary);
-        }
-        
-        .timeline-date {
+        .timeline-date-horizontal {
             font-weight: 600;
             color: var(--accent-color);
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
             display: inline-block;
             background-color: rgba(113, 128, 150, 0.1);
             padding: 5px 15px;
             border-radius: 20px;
             font-size: 0.9rem;
+            text-align: center;
+            width: 100%;
         }
         
-        .timeline-item:nth-child(odd) .timeline-date {
-            color: var(--accent-secondary);
-            background-color: rgba(160, 174, 192, 0.1);
-        }
-        
-        .timeline-content h3 {
+        .timeline-content-horizontal h3 {
             margin-bottom: 0.5rem;
             color: var(--primary-color);
+            text-align: center;
+        }
+        
+        .timeline-content-horizontal p {
+            color: var(--gray-medium);
+            text-align: center;
         }
         
         /* Contact Section */
@@ -672,6 +697,10 @@
             color: var(--light-text);
             position: relative;
             overflow: hidden;
+        }
+        
+        .contact::before {
+            display: none;
         }
         
         .contact .section-title h2 {
@@ -755,6 +784,10 @@
             text-align: center;
         }
         
+        footer::before {
+            display: none;
+        }
+        
         .social-links {
             display: flex;
             justify-content: center;
@@ -787,39 +820,7 @@
         }
         
         /* Responsive */
-        @media (max-width: 992px) {
-            .portfolio-item {
-                flex: 0 0 50%;
-            }
-            
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-            
-            .profile-img {
-                max-width: 300px;
-            }
-            
-            .hero-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .hero-text {
-                order: 2;
-            }
-            
-            .hero-image {
-                order: 1;
-                margin-bottom: 2rem;
-            }
-        }
-        
         @media (max-width: 768px) {
-            .portfolio-item {
-                flex: 0 0 100%;
-            }
-            
             .menu-toggle {
                 display: flex;
             }
@@ -830,7 +831,7 @@
                 left: -100%;
                 width: 80%;
                 height: 100vh;
-                background-color: rgba(74, 85, 104, 0.95);
+                background-color: rgba(74, 85, 104, 0.98);
                 backdrop-filter: blur(10px);
                 flex-direction: column;
                 align-items: center;
@@ -846,43 +847,49 @@
             
             .nav-links li {
                 margin: 1.5rem 0;
+                width: 100%;
+                text-align: center;
             }
             
             .nav-links a {
                 font-size: 1.2rem;
                 padding: 0.8rem 1.5rem;
-            }
-            
-            .experience-timeline::before {
-                left: 31px;
-            }
-            
-            .timeline-item {
+                display: block;
                 width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-                text-align: left !important;
-            }
-            
-            .timeline-item:nth-child(even) {
-                left: 0;
-            }
-            
-            .timeline-content::after {
-                left: -10px !important;
-            }
-            
-            .timeline-item:nth-child(odd) .timeline-content {
-                border-right: none;
-                border-left: 4px solid var(--accent-color);
             }
             
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2.5rem;
             }
             
             .hero h2 {
                 font-size: 1.4rem;
+            }
+            
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-text {
+                order: 2;
+            }
+            
+            .hero-image {
+                order: 1;
+                margin-bottom: 2rem;
+            }
+            
+            .profile-img {
+                max-width: 280px;
+            }
+            
+            .horizontal-timeline {
+                padding-bottom: 1rem;
+            }
+            
+            .timeline-item-horizontal {
+                flex: 0 0 280px;
             }
         }
         
@@ -904,6 +911,19 @@
             .contact-form {
                 padding: 1.5rem;
             }
+            
+            .nav-left {
+                gap: 0.7rem;
+            }
+            
+            .logo {
+                font-size: 1.1rem;
+            }
+            
+            .nav-profile {
+                width: 35px;
+                height: 35px;
+            }
         }
     </style>
 </head>
@@ -913,12 +933,12 @@
         <div class="container">
             <nav class="navbar">
                 <div class="nav-left">
-                    <a href="#home" class="logo">Fabian Moreno Monroy</a>
+                    <a href="#home" class="logo">Fabian Moreno</a>
                     <img src="static/perfil.png" alt="Fabian Moreno Monroy" class="nav-profile">
                 </div>
-                <div class="menu-toggle">
+                <button class="menu-toggle">
                     <i class="fas fa-bars"></i>
-                </div>
+                </button>
                 <ul class="nav-links">
                     <li><a href="#about">Acerca de</a></li>
                     <li><a href="#services">Servicios</a></li>
@@ -1100,46 +1120,45 @@
         </div>
     </section>
 
-    <!-- Resto del contenido se mantiene igual -->
-    <!-- Experience Section -->
+    <!-- Experience Section with Horizontal Timeline -->
     <section id="experience" class="experience">
         <div class="container">
             <div class="section-title">
                 <h2>Experiencia y Formación</h2>
                 <p>Mi trayectoria profesional y educativa en el ámbito tecnológico y financiero</p>
             </div>
-            <div class="experience-timeline">
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">2023 – Actualidad</div>
+            <div class="horizontal-timeline">
+                <div class="timeline-item-horizontal">
+                    <div class="timeline-date-horizontal">2023 – Actualidad</div>
+                    <div class="timeline-content-horizontal">
                         <h3>Fundador - ToroTech</h3>
                         <p>Análisis de datos y desarrollo de software para empresas de diversos sectores.</p>
                     </div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">2025 – Actualidad</div>
+                <div class="timeline-item-horizontal">
+                    <div class="timeline-date-horizontal">2025 – Actualidad</div>
+                    <div class="timeline-content-horizontal">
                         <h3>Diplomado en Banca y Finanzas</h3>
                         <p>Palacio de Minería (En línea)</p>
                     </div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">En curso</div>
+                <div class="timeline-item-horizontal">
+                    <div class="timeline-date-horizontal">En curso</div>
+                    <div class="timeline-content-horizontal">
                         <h3>Ingeniería Mecatrónica</h3>
                         <p>UNAM - 8vo semestre</p>
                     </div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">2025</div>
+                <div class="timeline-item-horizontal">
+                    <div class="timeline-date-horizontal">2025</div>
+                    <div class="timeline-content-horizontal">
                         <h3>Google Data Analytics</h3>
                         <p>Google</p>
                     </div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-content">
-                        <div class="timeline-date">2022</div>
+                <div class="timeline-item-horizontal">
+                    <div class="timeline-date-horizontal">2022</div>
+                    <div class="timeline-content-horizontal">
                         <h3>Speedling Inc. - Grower</h3>
                         <p>Georgia, USA - Gestión de cultivos en invernadero y control de variables ambientales</p>
                     </div>
@@ -1313,7 +1332,7 @@
         }
         
         function goToSlide(index) {
-            const maxIndex = items.length - itemsPerView;
+            const maxIndex = Math.max(0, items.length - itemsPerView);
             currentIndex = Math.max(0, Math.min(index, maxIndex));
             updateCarousel();
         }
@@ -1326,7 +1345,7 @@
         });
         
         nextBtn.addEventListener('click', () => {
-            const maxIndex = items.length - itemsPerView;
+            const maxIndex = Math.max(0, items.length - itemsPerView);
             if (currentIndex < maxIndex) {
                 currentIndex++;
                 updateCarousel();
@@ -1336,10 +1355,8 @@
         // Update carousel on resize
         window.addEventListener('resize', () => {
             const newItemsPerView = getItemsPerView();
-            if (newItemsPerView !== itemsPerView) {
-                currentIndex = 0;
-                updateCarousel();
-            }
+            currentIndex = 0;
+            updateCarousel();
         });
         
         // Initialize carousel
