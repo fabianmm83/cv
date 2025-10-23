@@ -46,7 +46,7 @@
             position: relative;
         }
         
-        /* Fondo de lluvia - Simplificado para mejor rendimiento en móvil */
+        /* Fondo de lluvia - Optimizado para móviles */
         .rain-container {
             position: fixed;
             top: 0;
@@ -55,7 +55,95 @@
             height: 100%;
             z-index: -1;
             pointer-events: none;
-            background: linear-gradient(135deg, #000 0%, #1a202c 100%);
+            background-color: #000;
+        }
+
+        .rain-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(90deg, transparent 79px, rgba(0, 153, 255, 0.1) 79px, rgba(0, 153, 255, 0.1) 81px, transparent 81px),
+                linear-gradient(90deg, transparent 159px, rgba(0, 153, 255, 0.1) 159px, rgba(0, 153, 255, 0.1) 161px, transparent 161px),
+                linear-gradient(90deg, transparent 239px, rgba(0, 153, 255, 0.1) 239px, rgba(0, 153, 255, 0.1) 241px, transparent 241px);
+            background-size: 320px 100%;
+            animation: rainFall 20s linear infinite;
+        }
+
+        .rain-container::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 40px 40px, rgba(0, 153, 255, 0.3), transparent),
+                radial-gradient(2px 2px at 80px 120px, rgba(0, 153, 255, 0.3), transparent),
+                radial-gradient(2px 2px at 120px 80px, rgba(0, 153, 255, 0.3), transparent),
+                radial-gradient(2px 2px at 160px 160px, rgba(0, 153, 255, 0.3), transparent),
+                radial-gradient(2px 2px at 200px 200px, rgba(0, 153, 255, 0.3), transparent),
+                radial-gradient(2px 2px at 240px 120px, rgba(0, 153, 255, 0.3), transparent),
+                radial-gradient(2px 2px at 280px 80px, rgba(0, 153, 255, 0.3), transparent);
+            background-size: 320px 320px;
+            animation: rainDrops 15s linear infinite;
+        }
+
+        @keyframes rainFall {
+            0% {
+                background-position: 0 0, 0 0, 0 0;
+            }
+            100% {
+                background-position: 320px 1000px, 320px 800px, 320px 600px;
+            }
+        }
+
+        @keyframes rainDrops {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 320px 320px;
+            }
+        }
+
+        /* Efecto de gotas de lluvia móviles */
+        .rain-drops {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .rain-drop {
+            position: absolute;
+            width: 2px;
+            height: 15px;
+            background: linear-gradient(to bottom, transparent, rgba(0, 153, 255, 0.6));
+            animation: rain linear infinite;
+        }
+
+        @keyframes rain {
+            0% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
         }
         
         /* Header - Navbar Completamente Transparente */
@@ -1013,6 +1101,7 @@
 <body>
     <!-- Fondo de lluvia -->
     <div class="rain-container"></div>
+    <div class="rain-drops" id="rainDrops"></div>
 
     <!-- Header -->
     <header id="navbar">
@@ -1377,6 +1466,38 @@
             } else {
                 header.style.backgroundColor = 'rgba(74, 85, 104, 0.1)';
             }
+        });
+
+        // Crear gotas de lluvia dinámicas
+        function createRainDrops() {
+            const rainContainer = document.getElementById('rainDrops');
+            const dropCount = window.innerWidth < 768 ? 30 : 50; // Menos gotas en móviles
+            
+            for (let i = 0; i < dropCount; i++) {
+                const drop = document.createElement('div');
+                drop.className = 'rain-drop';
+                
+                // Posición aleatoria
+                const left = Math.random() * 100;
+                const animationDuration = 1 + Math.random() * 2;
+                const animationDelay = Math.random() * 5;
+                
+                drop.style.left = `${left}%`;
+                drop.style.animationDuration = `${animationDuration}s`;
+                drop.style.animationDelay = `${animationDelay}s`;
+                
+                rainContainer.appendChild(drop);
+            }
+        }
+
+        // Inicializar lluvia cuando la página cargue
+        window.addEventListener('load', createRainDrops);
+
+        // Recrear gotas cuando cambie el tamaño de la ventana
+        window.addEventListener('resize', function() {
+            const rainContainer = document.getElementById('rainDrops');
+            rainContainer.innerHTML = '';
+            createRainDrops();
         });
     </script>
 </body>
